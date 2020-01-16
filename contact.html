@@ -1,0 +1,107 @@
+<!--
+    Author: Tyler Chilcote
+    Date Created: 8-30-2019
+    Last Modified: 9-8-2019
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Contact Form Page for Sunrise Cafe for the Homeless">
+        <meta name="Author" content="Tyler Chilcote">
+        <title>Contact Us</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+        <link rel="stylesheet" href="CSS/print.css" media="print">
+        <link rel="stylesheet" type="text/css" href="CSS/form.css">
+        <link rel="shortcut icon" href="images/favicon.ico" />
+    </head>
+
+    <body>
+        <header>
+            <nav class="center">
+                <ul>
+                    <!--
+                        navigation bar
+                    -->
+                    <li><a href="index.html">Home</a></li> <span>|</span>
+                    <li><a href="menu.html">Menu</a></li> <span>|</span>
+                    <li><a href="members.html">Our Members</a></li> <span>|</span>
+                    <li><a href="mission.html">Mission Statement</a></li> <span>|</span>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <!-- reused from the daily labs --> <script src="rb_formsubmit.js"></script>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <h1>Contact Us</h1>
+            <h2>please fill out the form below with your comments or concerns</h2>
+            <article>
+                <!--
+                    form
+                -->
+                <form id="contact" action="www.example.com/redball/survey" method="post">
+                    <div class="formRow">
+                        <label for="name">Name</label>
+                        <input name="custName" id="name" type="text" value="Anonymous" required />
+                    </div>
+
+                    <div class="formRow">
+                        <label for="email">E-Mail</label>
+                        <input name="custEMail" id="email" type="text"/>
+                    </div>
+
+                    <div class="formRow">
+                        <label for="pnum">Phone Number</label>
+                        <input name="custNum" id="pnum" type="text" placeholder="(nnn) nnn-nnnn" required pattern="^d{10}$|^(\(\d{3}\)\s*)?\d{4}?" />
+                    </div>
+
+                    <div class="formRow">
+                        <label for="visit">Date of Visit</label>
+                        <input name="visitDate" id="visit" type="date" />
+                    </div>
+
+                    <div class="formRow">
+                        <label for="reason">Reason for Contact?</label>
+                        <select name="contactType" id="reason">
+                            <option value="type1">compaint</option>
+                            <option value="type2">review</option>
+                            <option value="type3">praise</option>
+                            <option value="type4">other</option>
+                        </select>
+                    </div>
+
+                    <div class="formRow">
+                        <label>How much wood would a woodchuck chuck if a woodchuck could chuck wood?</label>
+                        <fieldset>
+                            <label for="yes">Yes</label>
+                            <input name="woodchuck" id="yes" value="yes" type="radio">
+                            <label for="no">No</label>
+                            <input name="woodchuck" id="no" value="no" type="radio">
+                        </fieldset>
+                    </div>
+
+                    <input name="mailMe" id="mailCB" value="yes" type="checkbox">
+                    <label for="mailMe">Add me to a mailing list for special events and deals?</label>
+
+                    <label for="commBox">Enter Text Here</label>
+                    <textarea name="commentBox" id="commBox"></textarea>
+
+                    <div id="buttons">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="reset">
+                    </div>
+                </form>
+            </article>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </section>
+        <footer>
+            <!--
+                basic contact info
+                footer
+            -->
+            <p>tel: (xxx)xxx-xxxx</p>
+        </footer>
+    </body>
+</html>

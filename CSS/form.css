@@ -1,0 +1,29 @@
+article {
+    display: flex;
+    width: 100%;
+}
+
+div.formRow {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin: 7px 0px;
+}
+
+div.formRow > * {
+    -webkit-flex: 1 1 150px;
+    flex: 1 1 150px;
+}
+
+textarea {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 100px;
+    width: 95%;
+}
+
+button {
+    margin-top: 10px;
+    margin-left: 10px;
+}

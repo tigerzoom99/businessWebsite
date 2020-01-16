@@ -1,0 +1,11 @@
+/* table style */
+table {
+    background: #8cb34f;
+    border: 10px outset #2c3b14;
+    font-size: 0.75em;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid gray;
+}

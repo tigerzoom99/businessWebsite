@@ -1,0 +1,186 @@
+/*
+
+Author: Tyler Chilcote
+Date: 8-21-2019
+
+*/
+
+/* styling */
+body {
+    background-color: #83ab43;
+}
+
+section {
+    margin-right: 80px;
+    margin-left: 80px;
+    background-color:#dfe8ac;
+    padding: 10px;
+}
+
+header {
+    margin-right: 80px;
+    margin-left: 80px;
+    background-color:#dfe8ac;
+}
+
+footer {
+    margin-right: 80px;
+    margin-left: 80px;
+    background-color:#dfe8ac;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+/* fonts */
+footer {
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* center class */
+.center {
+    text-align: center;
+}
+
+/* nav stuff */
+ul, ol {
+    list-style: none;
+ }
+
+ nav {
+    min-height: 2em;
+ }
+ 
+ nav ul {
+    list-style: none;
+    list-style-image: none;
+ }
+ 
+ nav a {
+    text-decoration: none;
+    font-size: 1em;
+    display: inline;
+ }
+
+ nav li {
+     display: inline;
+     line-height: 2em;
+     text-transform: uppercase;
+ }
+
+ /* article and aside*/
+article, aside {
+    display: block;
+}
+
+article, aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+
+article {
+    background-color:#a5d15e;
+}
+
+aside {
+    background-color: #8cb34f;
+}
+
+/* mobile sizes */
+@media only screen and (max-width: 480px) {
+
+    aside {
+        display: none;
+    }
+
+    img {
+        display: none;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    nav li {
+        display: block;
+    }
+    br {
+        display: none;
+    }
+
+    span {
+        display: none;
+    }
+
+    .center {
+        text-align: left;
+    }
+
+    video {
+        display: none;
+    }
+}
+
+/* tablet sizes */
+@media only screen and (min-width: 481px) {
+
+    article {
+        float: left;
+    }
+
+    br {
+        display: none;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    span {
+        display: inline;
+    }
+
+}
+
+
+/* Desktop Sizes */
+@media only screen and (min-width: 769px) {
+
+    article {
+        float: left;
+        margin-right: 5%;
+        width: 55%;
+    }
+    aside {
+        float: left;
+        width: 40%;
+    }
+
+    br {
+        display: block;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    span {
+        display: inline;
+    }
+}

@@ -1,7 +1,7 @@
 <!--
     Author: Tyler Chilcote
     Date Created: 8-30-2019
-    Last Modified: 9-8-2019
+    Last Modified: 1-27-2020
 -->
 <!DOCTYPE html>
 <html>
@@ -30,7 +30,7 @@
                     <li><a href="members.html">Our Members</a></li> <span>|</span>
                     <li><a href="mission.html">Mission Statement</a></li> <span>|</span>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <!-- reused from the daily labs --> <script src="rb_formsubmit.js"></script>
+                    <!-- reused from the daily labs <script src="rb_formsubmit.js"></script> -->
                 </ul>
             </nav>
         </header>
@@ -41,7 +41,7 @@
                 <!--
                     form
                 -->
-                <form id="contact" action="www.example.com/redball/survey" method="post">
+                <form name="form1" id="contact" action="post.php" method="post">
                     <div class="formRow">
                         <label for="name">Name</label>
                         <input name="custName" id="name" type="text" value="Anonymous" required />
@@ -49,26 +49,26 @@
 
                     <div class="formRow">
                         <label for="email">E-Mail</label>
-                        <input name="custEMail" id="email" type="text"/>
+                        <input name="custEMail" id="email" type="text" required />
                     </div>
 
                     <div class="formRow">
                         <label for="pnum">Phone Number</label>
-                        <input name="custNum" id="pnum" type="text" placeholder="(nnn) nnn-nnnn" required pattern="^d{10}$|^(\(\d{3}\)\s*)?\d{4}?" />
+                        <input name="custNum" id="pnum" type="text" required/>
                     </div>
 
                     <div class="formRow">
                         <label for="visit">Date of Visit</label>
-                        <input name="visitDate" id="visit" type="date" />
+                        <input name="visitDate" id="visit" type="date" required />
                     </div>
 
                     <div class="formRow">
                         <label for="reason">Reason for Contact?</label>
                         <select name="contactType" id="reason">
-                            <option value="type1">compaint</option>
-                            <option value="type2">review</option>
-                            <option value="type3">praise</option>
-                            <option value="type4">other</option>
+                            <option value="complaint">complaint</option>
+                            <option value="review">review</option>
+                            <option value="praise">praise</option>
+                            <option value="other">other</option>
                         </select>
                     </div>
 
@@ -89,7 +89,7 @@
                     <textarea name="commentBox" id="commBox"></textarea>
 
                     <div id="buttons">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" name="submit" id="submit">
                         <input type="reset" value="reset">
                     </div>
                 </form>

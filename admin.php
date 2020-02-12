@@ -5,12 +5,13 @@
 -->
 <?php
 
-$dsn = 'mysql:host=localhost;dbname=sunrise';
-$username = 'root';
-$password = 'Pa$$w0rd';
+require('model/database.php');
+require('model/employee.php');
+require('model/visitor.php');
+//connects to database
 
 try {
-    $db = new PDO($dsn, $username, $password);
+    $db = Database::getDB(); //function 1
 
 } catch (PDOException $e) {
     $error_message = $e->getMessage();
@@ -38,17 +39,8 @@ if ($action == 'list_visitors') {
         $empNo = 2;
     }
     try {
-        $query = 'SELECT * FROM employees
-                  ORDER BY empNo';
-        $statement = $db->prepare($query);
-        $statement->execute();
-        $employees = $statement;
-
-        $query2 = 'SELECT * FROM contact WHERE empNo = :empNo ORDER BY visitorEMail;';
-        $statement2 = $db->prepare($query2);
-        $statement2->bindValue(":empNo", $empNo);
-        $statement2->execute();
-        $visitors = $statement2;
+        $employees = getEmployee();             //function 2
+        $visitors = getVisitor($empNo);    //function 3
     }
     catch(PDOException $e){
         echo 'Error: ' . $e->getMessage(); //on failure, shows error message

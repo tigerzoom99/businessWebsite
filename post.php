@@ -36,9 +36,9 @@
 
             // Add the product to the database  
             $query = 'INSERT INTO contact
-                         (visitorName, visitorEMail, visitorComment, visitorPhone, visitorDate, contactReason, woodchuckAnswer)
+                         (visitorName, visitorEMail, visitorComment, visitorPhone, visitorDate, contactReason, woodchuckAnswer, empNo)
                       VALUES
-                         (:visitor_name, :visitor_email, :visitor_msg, :visitor_num, :visitor_date, :contact_reason, :woodc)';
+                         (:visitor_name, :visitor_email, :visitor_msg, :visitor_num, :visitor_date, :contact_reason, :woodc, 2)'; //all new comments are assigned to employee 2 (Chris Jorgensen)
             $statement = $db->prepare($query);
             $statement->bindValue(':visitor_name', $visitor_name);
             $statement->bindValue(':visitor_email', $visitor_email);
@@ -57,7 +57,7 @@
 <!--
     Author: Tyler Chilcote
     Date Created: 1-27-2020
-    Last Modified: 1-27-2020
+    Last Modified: 2-12-2020
 -->
 <!DOCTYPE html>
 <html>
@@ -85,8 +85,8 @@
                     <li><a href="menu.html">Menu</a></li> <span>|</span>
                     <li><a href="members.html">Our Members</a></li> <span>|</span>
                     <li><a href="mission.html">Mission Statement</a></li> <span>|</span>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <!-- reused from the daily labs --> <script src="rb_formsubmit.js"></script>
+                    <li><a href="contact.html">Contact Us</a></li> <span>|</span>
+                    <li><a href="login.php">Admin</a></li>
                 </ul>
             </nav>
         </header>

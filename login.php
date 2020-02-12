@@ -1,6 +1,6 @@
 <!--
     Author: Tyler Chilcote
-    Date Created: 8-30-2019
+    Date Created: 2-11-2020
     Last Modified: 2-12-2020
 -->
 <!DOCTYPE html>
@@ -8,9 +8,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Mission statement Page for Sunrise Cafe for the Homeless">
+        <meta name="description" content="Contact Form Page for Sunrise Cafe for the Homeless">
         <meta name="Author" content="Tyler Chilcote">
-        <title>Mission Statement</title>
+        <title>Admin Login</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/print.css" media="print">
@@ -35,15 +35,31 @@
             </nav>
         </header>
         <section>
-            <h1>Our Mission Statement</h1>
-            <h1><img src="images/hugs.png" alt="" height="400" width="500"></h1>
-            <!--
-                our mission statement
-            -->
+            <h1>Admin Login</h1>
+            <h2>please enter administrator EMail and password</h2>
             <article>
-                <p>Our mission statemen is "help the hungry, and feed the hungry. Remember those less fortunate" </p>
+                <!--
+                    form
+                -->
+                <form name="form1" id="contact" action="admin.php" method="post">
+                    <div class="formRow">
+                        <label for="adminMail">Email</label>
+                        <input name="adminMail" id="admin" type="text" placeholder="Admin email" required />
+                    </div>
+
+                    <div class="formRow">
+                        <label for="email">Password</label>
+                        <input name="pass" id="pass" type="password" required /> <!-- password is hidden -->
+                    </div>
+
+                    <p> developers note: you will be logged in as long as something is entered</p>
+
+                    <div id="buttons">
+                        <input type="submit" value="Submit" name="submit" id="submit">
+                    </div>
+                </form>
             </article>
-            <hr>
+            <br><br><br><br><br><br><br>
         </section>
         <footer>
             <!--

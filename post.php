@@ -1,4 +1,9 @@
+<!--
+Author: Tyler Chilcote
+last updated: 2-12-2020
+-->
 <?php 
+require('model/database.php'); // includes database connection
     /* gets info from contact.html  */
     $visitor_name = filter_input(INPUT_POST, 'custName');
     $visitor_email = filter_input(INPUT_POST, 'custEMail');
@@ -21,15 +26,13 @@
         echo "Form Data Error: " . $error; 
         exit();
         } else {
-            $dsn = 'mysql:host=localhost;dbname=sunrise';
-            $username = 'root';
-            $password = 'Pa$$w0rd';
-
             try {
-                $db = new PDO($dsn, $username, $password);
+                //$db = new PDO($dsn, $username, $password);
+                $db = Database::getDB(); // uses function to connect to sunrise DB
 
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
+                /* include('database_error.php'); */
                 echo "DB Error: " . $error_message; 
                 exit();
             }

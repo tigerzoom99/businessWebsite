@@ -34,24 +34,30 @@ require('model/database.php'); // includes database connection
                 $error_message = $e->getMessage();
                 /* include('database_error.php'); */
                 echo "DB Error: " . $error_message; 
-                exit();
+                header("Location: error.html");
             }
 
             // Add the product to the database  
-            $query = 'INSERT INTO contact
-                         (visitorName, visitorEMail, visitorComment, visitorPhone, visitorDate, contactReason, woodchuckAnswer, empNo)
-                      VALUES
-                         (:visitor_name, :visitor_email, :visitor_msg, :visitor_num, :visitor_date, :contact_reason, :woodc, 2)'; //all new comments are assigned to employee 2 (Chris Jorgensen)
-            $statement = $db->prepare($query);
-            $statement->bindValue(':visitor_name', $visitor_name);
-            $statement->bindValue(':visitor_email', $visitor_email);
-            $statement->bindValue(':visitor_msg', $visitor_msg);
-            $statement->bindValue(':visitor_num', $visitor_num);
-            $statement->bindValue(':visitor_date', $visitor_date);
-            $statement->bindValue(':contact_reason', $contact_reason);
-            $statement->bindValue(':woodc', $woodc);
-            $statement->execute();
-            $statement->closeCursor();
+            try {
+                $query = 'INSERT INTO contact
+                             (visitorName, visitorEMail, visitorComment, visitorPhone, visitorDate, contactReason, woodchuckAnswer, empNo)
+                          VALUES
+                             (:visitor_name, :visitor_email, :visitor_msg, :visitor_num, :visitor_date, :contact_reason, :woodc, 2)'; //all new comments are assigned to employee 2 (Chris Jorgensen)
+                $statement = $db->prepare($query);
+                $statement->bindValue(':visitor_name', $visitor_name);
+                $statement->bindValue(':visitor_email', $visitor_email);
+                $statement->bindValue(':visitor_msg', $visitor_msg);
+                $statement->bindValue(':visitor_num', $visitor_num);
+                $statement->bindValue(':visitor_date', $visitor_date);
+                $statement->bindValue(':contact_reason', $contact_reason);
+                $statement->bindValue(':woodc', $woodc);
+                $statement->execute();
+                $statement->closeCursor();
+            } catch (PDOException $e) {
+                $error_message = $e->getMessage();
+                //include('../errors/database_error.php');
+                header("Location: error.html");
+            }
             /* echo "Fields: " . $visitor_name . $visitor_email . $visitor_msg; */
 
 }

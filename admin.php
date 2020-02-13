@@ -16,7 +16,7 @@ try {
 } catch (PDOException $e) {
     $error_message = $e->getMessage();
     echo "DB Error: " . $error_message; 
-    exit();
+    header("Location: error.html");
     }
         
 // Check action; on initial load it is null
@@ -44,21 +44,26 @@ if ($action == 'list_visitors') {
     }
     catch(PDOException $e){
         echo 'Error: ' . $e->getMessage(); //on failure, shows error message
+        header("Location: error.html");
     }
 }
 
 // Executed when user clicks delete button
 else if ($action == 'delete_visitor') {
-    $visitorID = filter_input(INPUT_POST, 'visitorID', 
-            FILTER_VALIDATE_INT);
-    $query = 'DELETE FROM contact
-              WHERE visitorID = :visitorID';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':visitorID', $visitorID);
-    $statement->execute();
-    $statement->closeCursor();
-    echo ("VisitorID: $visitorID");
-    header("Location: admin.php");  
+    try {
+        $visitorID = filter_input(INPUT_POST, 'visitorID', 
+                FILTER_VALIDATE_INT);
+        $query = 'DELETE FROM contact
+                  WHERE visitorID = :visitorID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':visitorID', $visitorID);
+        $statement->execute();
+        $statement->closeCursor();
+        echo ("VisitorID: $visitorID");
+        header("Location: admin.php");  
+    } catch(PDOException $e) {
+        header("Location: error.html");
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -68,7 +73,7 @@ else if ($action == 'delete_visitor') {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Contact Form Page for Sunrise Cafe for the Homeless">
         <meta name="Author" content="Tyler Chilcote">
-        <title>Contact Us</title>
+        <title>Admin Page</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="CSS/styles.css">
         <link rel="stylesheet" href="CSS/print.css" media="print">

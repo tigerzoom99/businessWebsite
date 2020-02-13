@@ -16,7 +16,7 @@ class Database {
             } catch (PDOException $e) {
                 $error_message = $e->getMessage();
                 //include('../errors/database_error.php');
-                exit();
+                header("Location: error.html");
             }
         }
         return self::$db;
